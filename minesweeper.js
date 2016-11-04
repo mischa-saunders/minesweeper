@@ -71,32 +71,33 @@ function startGame() {
     for (var i = 0; i < board.cells.length; i++) {
         board.cells[i].surroundingMines = countSurroundingMines(board.cells[i]);
 
-        document.addEventListener('contextmenu', woosh, checkForWin)
-        document.addEventListener('click', gong, checkForWin)
+        document.addEventListener('contextmenu', checkForWin)
+        document.addEventListener('click', checkForWin)
     }
     lib.initBoard()
 }
+
+//Check if mouse is over board
 // Sound Functions
+
 function woosh(){
   var soundWoosh = document.getElementById("iThinkItsAMine")
-  soundWoosh.play();
+      soundWoosh.play();
 }
-// function woosh(){
-//   var soundWoosh = document.getElementById("notMine?")
-//   soundWoosh.play();
-// }
+document.addEventListener('contextmenu', woosh)
 
 function gong(){
   var soundGong = document.getElementById("gong")
   var soundBlob = document.getElementById("notMine?")
-  for (var i = 0; i < board.cells.length; i++) {
-      if (board.cells[i].isMine && !board.cells[i].hidden) {
-        soundGong.play();
-      }
-      else {soundBlob.play();
-      }
-  }
+    for (var i = 0; i < board.cells.length; i++) {
+        if (board.cells[i].isMine && !board.cells[i].hidden) {
+          soundGong.play();
+        }
+        else {soundBlob.play();
+        }
+    }
 }
+document.addEventListener('click', gong)
 function chipmunks(){
   var soundChipmunks = document.getElementById("win")
   soundChipmunks.play();
