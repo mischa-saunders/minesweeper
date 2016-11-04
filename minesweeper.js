@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', startGame)
 //Define board size and the number of mines
 var size =6
 var noElements = size*size;
-var noMine= Math.floor(noElements/3);
+var noMine= Math.floor(noElements/4);
 var mineList = []
 
 //Create an array of the mines
